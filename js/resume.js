@@ -24,5 +24,15 @@
   $('body').scrollspy({
     target: '#sideNav'
   });
+  
+  $('#profile-img')
+	.on('click.plays',function(){
+		$(this).animate({
+			opacity: 1,
+		}, 1000, function(){
+			$(this).off('click.plays');
+		});
+		$('#profile-audioc')[0].play();
+	});
 
 })(jQuery); // End of use strict
