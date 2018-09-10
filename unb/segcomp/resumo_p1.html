@@ -1,0 +1,139 @@
+<!--
+DevDOCS
+
+Bulma Quick Start:
+	- https://bulma.io/documentation/overview/start/
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumo P1</title>
+    <link rel="stylesheet" href="/shared/bulma.min.css">
+    <script defer src="/shared/fontawesome.js"></script>
+    <style type="text/css">
+		.main {
+			margin: 0 auto;
+			max-width: 720px;
+		}
+
+    	/*source: https://stackoverflow.com/a/9753612*/
+		.tpre {
+			font-family: monospace;
+    		white-space: pre;
+		}
+    </style>
+  </head>
+  <body>
+  <div>
+    <div id="pagetop" class="container main">
+      <h1 class="title">
+        <center>Resumo P1</center>
+      </h1>
+      <div class="content" style="margin-top: 1em;">
+        <div id="sec00" class="sec">
+          <center><h4>Roteiro</h4></center>
+          <ol>
+            <li>Noção de segurança: Sentimento ou processo?</li>
+            <li>O que é Comunicação segura? E Criptografia?</li>
+            <li>O que são, e como se produzem significados?</li>
+            <li>Processos de segurança em contextos virtuis</li>
+          </ol>
+        </div>
+        <div id="sec01" class="sec">
+          <center><h4>Parte I</h4></center>
+          <ul>
+            <li>Segurança: teatro, sentimento (psique) e processo.<br>O verbo proteger é a melhor correspondência para este subjetivo<sup class="fn">Ver slide 19</sup>. No sentimento significa "risco aceitável?" e no processo "de quem? contra o quê?"</li>
+            <li>Processo: exemplo da propaganda da PAPAIZ - aplicação do Princípio de Kerkhoffs<sup class="fn">Conjunto de condições que August Kerckhoffs, engenheiro holandes radicado na França, formulou como desejáveis à criptografia militar, no século XIX (<a href="https://cic.unb.br/~rezende/trabs/kerckhoffs.html">veja mais</a> na fonte)</sup></li>
+            <li>Sentimento: crença de que o uso de um artefato (ex: API) lhe traz segurança</li>
+            <li>Teatro: por conta de não saber distinguir sentimento de processo há o teatro, onde as cenas se passam em dois planos: písico e físico. Nele existem o enredo, cenário e os desenrolar.</li>
+          </ul>
+          <center><h5>Teatro da Segurança <i>de dados</i></h5></center>
+          Seguem as definições:
+          <table class="table">
+            <thead><tr><th>Slide</th><th>Termo</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td>16</td><td>Cognição</td><td>capacidade de conhecimento</td></tr>
+              <tr><td>16</td><td>Situação comunicativa</td><td>emissor + receptor + canal + transmissão de dados</td></tr>
+              <tr><td>16</td><td>Canal transmissivo</td><td>meio capaz de transmitir, através do tempo ou do espaço, sinais que codificam dados por algum agente cognitivo: A e/ou B</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec02" class="sec">
+          <center><h4>Parte II</h4></center>
+          <p>O professor define comunicação ainda no contexto de "teatro de segurança de dados". Lembrando que sempre processo e psíque estarão dentro deste teatro, assim como as definições a seguir.</p>
+          <ul>
+            <li>O que significa a ação "proteger dados".<br>No processo: Evitar ou permitir certas ações ao longo do canal transmissivo em uma situação comunicativa, conforme um contexto de referência para proteção: Referência a interesse (s) do agente A, do B, do dono do canal, ou combinações;<br>Na psíque: induzir sentimento de que tais interesses na situação estão protegidos.</li>
+            <li>Pra que serve a criptografia? Para proteger sigilo e/ou integridade daquilo que dados significam, e/ou acesso a tais dados, durante a transmissão dos mesmos através de um canal vulnerável. Caso o canal seja digital, é chamado de <i>canal em banda</i></li>
+            <li>Papel da comunicação? Neste teatro, é o enredo. Para quem deseja transmitir os sinais/dados, para quê e como?</li>
+            <li>Sub-enredo pode ser visto como o <i>Key distribution problem</i></li>
+            <li>O que criptografia? Arte<sup>(1)</sup>, engenharia<sup>(2)</sup> e ciência<sup>(3)</sup>.<br>Ela não protege a comunicação, dado ou informação - mas sim pode proteger certos valores que os dados significam, ante algum interesse, pelo que informam em contextos.</li>
+            <li>Mecanismos criptográficos funcionam com base em dois fundamentos, dos quais ao menos um é relativo: controle de custos de codificar/decoficar; premissas de confiança (condições<sup>(1)</sup> para o uso ser eficaz<sup>(3)</sup>)</li>
+          </ul>
+          <table class="table">
+            <thead><tr><th>Slide</th><th>Termo</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td>26</td><td>Dados</td><td>são meros símbolos, codificados em sinais quantificáveis, capazes de representar informação em contextos (Valdemar Setzer)</td></tr>
+              <tr><td>26</td><td>Símbolos</td><td>não pegam fogo nem vão para a cadeia, não quebram nem morrem; o que eles informam, ou a quemsignificam*, talvez.</td></tr>
+              <tr><td>26</td><td>Valores protegíveis</td><td>são os que podem ser preservados por garantias de sigilo, e/ou de integridade, e/ou de acesso controlado</td></tr>
+              <tr><td>27</td><td>Identidade</td><td>mera projeção do receptor, que fixa características (normalmente fluidas e mutáveis) em um ente ou de um indivíduo</td></tr>
+              <tr><td>27</td><td>Identificação</td><td>qualquer (sub)processo que fixa projeções. E "quem" émero pronome, usado na narrativa do processo para se referir a algum agente cognitivo</td></tr>
+              <tr><td>28</td><td>Canal de comunicação</td><td>canal transmissivo bidirecional + modelos mentais cognitivos</td></tr>
+              <tr><td>28</td><td>Significado</td><td>o que se produz cognitivamente em agentes principais, com estes alternando papéis (mesmo que simulados) de emissor e receptor.</td></tr>
+              <tr><td>28</td><td>Interlocutores</td><td>quando emissor e receptor se alternam num canal de comunicação</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec03" class="sec">
+          <center><h4>Parte III</h4></center>
+          <p>Como se produzem significados</p>
+          <ul>
+            <li>No emissor: <span style="color:red;">(todo)</span></li>
+            <li>No receptor: <span style="color:red;">(todo)</span></li>
+          </ul>
+          <table class="table">
+            <thead><tr><th>Slide</th><th>Termo</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td>29</td><td>Informação</td><td>aquilo que é transferido de uma fonte emissora para um destino através de um canal (transmissivo), medível em termos de probabilidade do que não é antecipável em relação ao que pode ser esperado e entendido (do contexto)pelo receptor (Shannon, 1948)</td></tr>
+              <tr><td>30</td><td>Confiança</td><td>aquilo que é essencial (para uma informação ter valor ou fazer sentido) para um canal de comunicação e que não pode ser transferido da fonte para o destino através do mesmo (Ed Gerk, 1997)</td></tr>
+              <tr><td>30</td><td>Situação cognitiva</td><td>é aquilo que se crê já sabido</td></tr>
+              <tr><td>30</td><td>Sentido</td><td>significado coerente</td></tr>
+              <tr><td>(Extra)</td><td>Semiose</td><td>termo introduzido por Charles Sanders Peirce para designar o processo de significação, a produção de significados</td>
+              </tr>
+              <tr><td>31</td><td>Contexto</td><td>estado de conhecimento "filtrado em confiança"<sup class="fn">ver confiança direcionada</sup> para decidir se, e como, en-gajar o outro interlocutor, e atualizar esse estado em função das iterações decorrentes</td></tr>
+              <tr><td>32</td><td>Confiança direcionada</td><td>atua como filtro (in) – no papel de emissor, para expressão; e no de receptor, para interpretação, fundados em suposto interesse(s) do outro interlocutor</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec03" class="sec">
+          <center><h4>Parte IV</h4></center>
+          <table class="table">
+            <thead><tr><th>Slide</th><th>Termo</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td>35</td><td>Premissas de confiança</td><td>condições e requisitos para uso eficaz do(s) mecanismo(s) escolhido(s)</td></tr>
+              <tr><td>35</td><td>Canal de confiança</td><td>designa canal fora-de-banda (no tempo ou no espaço), que seja confiável conforme as premissas de confian-ça referentes a transporte de material necessário, no caso, para o(s) mecanismo(s) escolhido(s) [poder(em) operarem banda].</td></tr>
+              <tr><td>41</td><td>Hiótese de Trabalho</td><td>qualquer procedimento ou mecanismo objetivando alguma formade segurança informacional ou na informática demanda algum Canal de Confiança para habilitar seu uso eficaz</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec04" class="sec">
+          <center><h4>Observações</h4></center>
+          <ul>
+            <li>Fonte: <a href="https://cic.unb.br/~rezende/segdados_files/preliminares.pdf">preliminares.pdf</a></li>
+            <li>Versão: 0.0.1</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="/shared/jquery-3.3.1.min.js"></script>
+  <script src="/shared/footnotes.js"></script>
+  <script>
+  </script>
+  </body>
+</html>
