@@ -104,7 +104,7 @@ Bulma Quick Start:
                 </ol>
                 <p>In items 1 and 2, the regular expressions <i>a</i> and  represent the languages \(\{a\}\) and \(\{\epsilon\}\), respectively. In item 3, the regular expression \(\emptyset\) represents the empty language. In items 4, 5, and 6, the expressions represent the languages obtained by taking the union or concatenation of the languages R<sub>1</sub> and R<sub>2</sub>, or the star of the language R<sub>1</sub>, respectively.</p>
               </td><td></td></tr>
-              <tr><td>1.64</td><td>73</td><td>A <i><strong>generalized nondeterministic finite automaton</strong></i> is a 5-tuple, \((Q,\Sigma, \delta, qstart, qaccept)\), where
+              <tr><td><span id="def-164">1.64</span></td><td>73</td><td>A <i><strong>generalized nondeterministic finite automaton</strong></i> is a 5-tuple, \((Q,\Sigma, \delta, qstart, qaccept)\), where
                 <ol>
                   <li>\(Q\) is the finite set of states,</li>
                   <li>\(\Sigma\) is the input alphabet,</li>
@@ -112,7 +112,14 @@ Bulma Quick Start:
                   <li>\(q_{start}\) is the start state, and </li>
                   <li>\(q_{accept}\) is the accept state.</li>
                 </ol>
-              </td><td></td></tr>
+              </td><td>Adicionalmente, as seguintes propriedades devem ser satisfeitas:
+                <ol>
+                  <li>O estado inicial \(q_{start}\) possui transições para todos os outros estados em \(Q - \{q_{start}\}\), mas nenhum estado chega até ele.</li>
+                  <li>O estado final \(q_{accept}\) possui transições chegando até ele vindo de todos os outros os outros estados em \(Q - \{q_{accept}\}\), mas nenhuma transição saí dele.</li>
+                  <li>O estado inicial é obrigatóriamente diferente do final: \(q_{start} \neq q_{accept}\)</li>
+                  <li>Exceto os estados inicais e finais, todos possem transições indo para os outros estados em \(Q\). Isto incluí eles mesmos, e deve-se respeitar os itens anteiores. Por exemplo, não pode existir uma transição no formato: \((q_i, x) \to q_{start}, i \in Q\)</li>
+                </ol>
+              </td></tr>
               <tr><td>1.70</td><td>78</td><td><i><strong>Pumping lemma</strong></i> If <i>A</i> is a regular language, then there is a number <i>p</i> (the pumping length) where if <i>s</i> is any string in <i>A</i> of length at least <i>p</i>, then <i>s</i> may be divided into three pieces, \(s = xyz\), satisfying the following conditions:
                 <ol>
                   <li>for each \(i \geq 0\), \(xy^iz \in A\), </li>
@@ -147,6 +154,31 @@ Bulma Quick Start:
           </table>
         </div>
         <div id="sec00" class="sec">
+          <center id="sec-info"><h4>Procedimentos</h4></center>
+          <h5>DFA para GNFA</h5>
+          <p>
+            Seja um DFA M = \((Q, \Sigma, \delta, q_0, F)\), podemos gerar uma GNFA N = \((Q^{\bullet}, \Sigma^{\bullet}, \delta^{\bullet}, q_0^{\bullet}, F^{\bullet})\) da seguinte forma:
+            <ol>
+              <li>Crie um novo estado inicial \(q_{s}\) e final \(q_{f}\), de tal forma que \(Q^{\bullet} = Q \cup \{q_{s}, q_{f}\}\)</li>
+              <li>\(\Sigma = \Sigma^{\bullet}\)</li>
+              <li>A função \(\delta^{\bullet}\) é definida por:
+                <ol>
+                  <li>\(\delta(q_s, \epsilon) = q_0\)</li>
+                  <li>\(\delta(q_i, \epsilon) = q_f, q_i \in F\)</li>
+                  <li>\(\delta(q_i, x), q_i \in Q \wedge x \in \Sigma\)</li>
+                </ol>
+              </li>
+            </ol>
+            <p>Certifique-se que no desenho, a seguinte regra vale:
+              <ul>
+                <li>Para cada dois estados distintos em Q \((q_i, q_j \in Q \wedge i \neq j)\), há só uma seta indo de \(q_i \to q_j\)</li>
+                <li>Caso não haja transição \(q_i \to q_j\), haja uma seta com o rótulo \(\emptyset\) explicitamente, para assim cumprir com a <a href="#def-164">regra 4</a> de GNFA</li>
+              </ul>
+            </p>
+          </p>
+          <p>Página de Ref.: 71</p>
+        </div>
+        <div id="sec00" class="sec">
           <center id="sec-info"><h4>Observações</h4></center>
           <ul>
             <li>Livro:
@@ -159,6 +191,7 @@ Bulma Quick Start:
                 <li>Links: <a href="https://www.amazon.com/Introduction-Theory-Computation-Michael-Sipser/dp/113318779X">Amazon</a></li>
               </ul>
             </li>
+            <li>Atualizado em: 17 de Setembro de 2018</li>
           </ul>
         </div>
       </div>
