@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>P2 SB</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.7.1-->
+    <link rel="stylesheet" href="/shared/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="content.css">
+</head>
+
+<body>
+    <section class="hero is-info is-medium is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="toptitle">Prova 2 de Software Básico</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container" id="app">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-10 is-offset-1">
+                <!-- START ARTICLE -->
+                <div id="maincontent" class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title">Questionário</p>
+                                <div class="tags has-addons level-item">
+                                    <span class="tag is-rounded">14 de Outubro de 2018</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            <div>
+                                <p>I Parte - Responda falso, verdadeiro ou NS (Não Sei). Duas erradas anulam uma certa.</p>
+                            </div>
+                            <div id="question_list" v-for="(qst,idx) in question_dat">
+                                <div class="question co">
+                                    <div class="question he">
+                                        <strong>{{idx+1}}.</strong> <span v-html="qst.text"></span>
+                                    </div>
+                                    <div class="question ch">
+                                        <span class="select">
+                                            <select class="question-sel" v-bind:idx="qst.idx">
+                                                <option value="1">Verdadeiro</option>
+                                                <option value="2">Falso</option>
+                                                <option value="3">Não Sei</option>
+                                            </select>
+                                        </span>
+                                        <i v-if="qst.ok == 1" class="fas fa-fw fa-check fa-2x qr"></i>
+                                        <i v-if="qst.ok == 0" class="fas fa-fw fa-times fa-2x qw"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <center>
+                                    <div>
+                                        <button id="send_form" class="button is-primary">Enviar</button>
+                                        <span v-if="show_results" style="margin-left: 0.3em;">
+                                            <a v-on:click="ev_restart" href="#maincontent">
+                                                <i class="fas fa-fw fa-2x fa-sync" alt="reiniciar"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div v-if="show_results" style="margin-top: 1em;">
+                                        Resultado {{question_ok}} / {{question_total}}
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END ARTICLE -->
+        </section>
+        <!-- END ARTICLE FEED -->
+        </div>
+        <script async type="text/javascript" src="/shared/vue-2.5.17.min.js"></script>
+        <script async type="text/javascript" src="/shared/axios-0.18.0.min.js"></script>
+        <script async type="text/javascript" src="/shared/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            /* source: https://stackoverflow.com/a/12646864 */
+            function shuffleArray(array) {
+                for (var i = array.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+
+            function clear_answers(of){
+                for (idx in of){
+                    of[idx].ok = -1;
+                }
+            }
+
+            var _qgroup = null;
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    question_dat: null,
+                    question_ok: 0,
+                    question_total: 0,
+                    show_results: false,
+                },
+                created: function(){
+                    _this = this;
+                    axios({
+                        method: 'GET',
+                        url: 'questoes.json',
+                        responseType: 'json',
+                    }).then(function(r){
+                        clear_answers(r.data);
+                        _this.question_dat = r.data;
+                        _qgroup = r.data;
+                    });
+                },
+                methods: {
+                    ev_restart: function () {
+                        app.show_results = false;
+                        clear_answers(app.question_dat);
+                        shuffleArray(this.question_dat);
+                    }
+                }
+                
+            });
+
+            $('#send_form').on("click",function(){
+                var ok = 0, nok = 0;
+                $('select.question-sel').each(function(){
+                    var response = $(this).val();
+                    var question_id = $(this).attr('idx');
+                    console.log(question_id);
+                    var holder = app.question_dat[question_id-1];
+                    var trivia = holder.trivia;
+                    if (response == 2){
+                        return;
+                    }
+                    if (response == trivia){
+                        ok += 1; holder.ok = 1;
+                    } else {
+                        nok += 1; holder.ok = 0;
+                    }
+                });
+                ok += -(Math.trunc(nok/2));
+                app.question_ok = ok;
+                app.question_total = ok+nok;
+                app.show_results = true;
+            });
+
+            
+        </script>
+</body>
+
+</html>
