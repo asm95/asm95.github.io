@@ -4,9 +4,10 @@ value_or_not = lambda x,y: x if x else y
 unpack = lambda x,y: (x[z] for z in y)
 
 def script_main():
-	name = 'questoes_p2'
+	name = 'sb_questoes_p2'
+	oname = 'questoes'
 	ifilen = '%s.csv'%(name)
-	ofilen = '%s.json'%(name)
+	ofilen = '%s.json'%(oname)
 	print('(I) Converting %s to Vue readable JSON...'%(ifilen,))
 
 	json_data = []
@@ -27,3 +28,4 @@ def script_main():
 	return True
 if __name__ == '__main__':
 	script_main()
+	exit(0)

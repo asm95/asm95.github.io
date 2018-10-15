@@ -52,8 +52,8 @@
                                         <span class="select">
                                             <select class="question-sel" v-bind:idx="qst.idx">
                                                 <option value="1">Verdadeiro</option>
-                                                <option value="2">Falso</option>
-                                                <option value="3">Não Sei</option>
+                                                <option value="0">Falso</option>
+                                                <option value="2">Não Sei</option>
                                             </select>
                                         </span>
                                         <i v-if="qst.ok == 1" class="fas fa-fw fa-check fa-2x qr"></i>
@@ -135,25 +135,25 @@
             });
 
             $('#send_form').on("click",function(){
-                var ok = 0, nok = 0;
+                var ok = 0, nok = 0, total = 0;
                 $('select.question-sel').each(function(){
                     var response = $(this).val();
                     var question_id = $(this).attr('idx');
-                    console.log(question_id);
                     var holder = app.question_dat[question_id-1];
                     var trivia = holder.trivia;
                     if (response == 2){
-                        return;
+                        total += 1; return;
                     }
                     if (response == trivia){
                         ok += 1; holder.ok = 1;
                     } else {
                         nok += 1; holder.ok = 0;
                     }
+                    total += 1;
                 });
                 ok += -(Math.trunc(nok/2));
                 app.question_ok = ok;
-                app.question_total = ok+nok;
+                app.question_total = total;
                 app.show_results = true;
             });
 
