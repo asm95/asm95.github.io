@@ -1,0 +1,78 @@
+<!--
+DevDOCS
+
+Bulma Quick Start:
+	- https://bulma.io/documentation/overview/start/
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumo P2</title>
+    <link rel="stylesheet" href="/shared/bulma.min.css">
+    <script defer src="/shared/fontawesome.js"></script>
+    <style type="text/css">
+		.main {
+			margin: 0 auto;
+			max-width: 720px;
+		}
+
+    	/*source: https://stackoverflow.com/a/9753612*/
+		.tpre {
+			font-family: monospace;
+    		white-space: pre;
+		}
+    </style>
+  </head>
+  <body>
+  <div>
+    <div id="pagetop" class="container main">
+      <h1 class="title">
+        <center>Resumo P2</center>
+      </h1>
+      <div class="content" style="margin-top: 1em;">
+        <div id="sec00" class="sec">
+          <center><h4>Roteiro</h4></center>
+          <ol>
+            <li>Em Breve</li>
+          </ol>
+        </div>
+        <div id="sec01" class="sec">
+          <center><h4>Parte II - Elementos de Protocolos</h4></center>
+          <ul>
+          </ul>
+          <center><h5></h5></center>
+          Seguem as definições:
+          <table class="table">
+            <thead><tr><th>Slide</th><th>Termo</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=30">30</a></td><td>Protocolo</td><td>É um algoritmo distribuido, em que a execução dos passos é <i>alternada</i> entre dois ou mais agentes executores.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=38">38</a></td><td>Função Unidirecional</td><td>Função simbólica com qual é facil (viável) calcular a imagem de um argumento, e difícil (inviável) deduzir um argumento para uma imagem dada (pré-imagem). Condição necessária - mas não suficiente - para hash criptografico.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=38">38</a></td><td>Função Unidirecional "com tranca" (<i>trapdoor function</i>)</td><td>Função simbólica unidrecional para a qual existe um tipo de metadado sobre a imagem que torna fácil calcular uma pré-imagem sua. São fundamentais para geração de chaves assimétricas.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=38">38</a></td><td>Hash Criptográfico<sup class="fn">Sinônimos: <i>Digest, Fingerprint ou Checksum Criptográfico; Cheque de Integridade, Cifra unidirecional, etc.</i></sup></td><td>Função simbólica com argumentos de tamanho variável e imagens de tamanho fixo equiprováveis (<i>hash</i>), unidirecional (de custo para se obter pré-imagem estatisticamente controlado e inviável), e <i>resistente a colisões<sup class="fn">Resistência a colisões: Quando é difícil (i.e., estatisticamente controlado a nível de custo inviável) obter-se <i>colisões livres</i>, i.e, encontrar dois argumentos que produzam a mesma imagem <code>h()</code> (ver ataque de aniversário)</sup></i>.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=38">38</a></td><td>MAC (<i>Message Authentication Code</i>)</td><td>Esquema em que um hash criptográfico <code>h()</code> é usado com "chave" secreta \(k_{A,B}\) previamente compartilhada entre emissor e receptor, para autenticação de <code>m</code> entre ambos durante a transmissão de <span class="tpre">\(m || h(m||k_{A,B})\)</span>. (Se um terceiro vier a conhecer \(k_{A,B}\), a origem e integridade de <code>m</code> não poderao mais ser validadas</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=39">39</a></td><td>CRC (<i>Check Redundancy Code</i>)</td><td>Função simbólica destinada a detectar erros (involuntários) de transmissão ou armazenagem de dados - para <i>safety</i>: inócua em canais sujeitos a escuta ativa.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page=39">39</a></td><td>Assinatura Digital</td><td>Esquema para autenticação objetiva, adequado a protocolos cujo propósito exija validação de origem e integridade (do conteúdo autenticado) <i>também</i> por terceiros, além dos agentes principais. Adequado, portanto, onde tal validação não se baseie em compartilhamento de segredo, e sim em segredo não compartilhado \(D_A\) e criptografia assimétrica. Por exemplo, em protocolos para rede aberta, ou protocolos que devam produzir prova jurídica oponível a principais<sup class="fn">OBS: a <i>irrefutabilidade</i> da assinatura digital é de natureza técnica: sustenta-se nas premissas de confiança do esquema e da sanidade da implementação. Se presentes, sustentam a <i>irretratabilidade jurídica</i> na autoria da assinatura</sup>.</td></tr>
+              <tr><td><a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf#page="></a></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec02" class="sec">
+          <center><h4>Observações</h4></center>
+          <ul>
+            <li>Fonte: <a href="https://cic.unb.br/~rezende/segdados_files/CriptSeg1-2.pdf">CriptSeg1-2.pdf</a></li>
+            <li>Provas anteriores: <a href="anexos/p2_digitalizado.html">p2_digitalizado.html</a></li>
+            <li>Versão: 0.0.1</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="/shared/jquery-3.3.1.min.js"></script>
+  <script src="/shared/footnotes.js"></script>
+  <script src="/shared/mathjax/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script>
+  </script>
+  </body>
+</html>
