@@ -1,0 +1,149 @@
+<!--
+DevDOCS
+
+Bulma Quick Start:
+	- https://bulma.io/documentation/overview/start/
+
+Latex Math Symbols:
+  - http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AEC 2018/2</title>
+    <link rel="stylesheet" href="/shared/bulma.min.css">
+    <script defer src="/shared/fontawesome.js"></script>
+    <style type="text/css">
+		.main {
+			margin: 0 auto;
+			max-width: 720px;
+		}
+
+    	/*source: https://stackoverflow.com/a/9753612*/
+		.tpre {
+			font-family: monospace;
+    		white-space: pre;
+		}
+    </style>
+  </head>
+  <body>
+  <div>
+    <div id="pagetop" class="container main">
+      <h1 class="title">
+        <center>Autômatos Resumo</center>
+      </h1>
+      <div class="content" style="margin-top: 1em;">
+        <div id="sec05">
+          <div id="pwatoc"><ul></ul></div>
+        </div>
+        <div id="sec04" class="sec">
+          
+        </div>
+        <div id="sec03" class="sec">
+          <center id="sec-lteo"><h4>Lista de Teoremas</h4></center>
+          <table class="table">
+            <thead><tr><td>Nº</td><td>Página</td><td>Descrição</td><td>Comentário</td></tr></thead>
+            <tbody>
+              <tr><td>5.1</td><td>216</td><td>\(HALT_{TM}\) is undecidable</td><td>It makes an reduction from \(A_{TM}\) to prove it.</td></tr>
+              <tr><td>5.2</td><td>217</td><td>\(E_{TM}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.3</td><td>219</td><td>\(REGULAR_{TM}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.4</td><td>220</td><td>\(EQ_{TM}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.8</td><td>222</td><td>Let \(M\) be an LBA with \(q\) states and \(g\) symbols in the tape alphabet. There are exactly \(qng^n\) distinct configurations of \(M\) for a tape of length \(n\).</td><td></td></tr>
+              <tr><td>5.9</td><td>222</td><td>\(A_{LBA}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.10</td><td>223</td><td>\(E_{LBA}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.13</td><td>225</td><td>\(ALL_{CFG}\) is undecidable.</td><td></td></tr>
+              <tr><td>5.22</td><td>236</td><td>If \(A\leq_{m}B\) and \(B\) is decidable, then \(A\) is decidable.</td><td></td></tr>
+              <tr><td>5.23</td><td>236</td><td>(Corollary) If \(A\leq_{m}B\) and \(A\) is undecidable, then \(B\) is undecidable.</td><td></td></tr>
+              <tr><td>5.28</td><td>237</td><td>If \(A\leq_{m}B\) and \(B\) is Turing-recognizable, then \(A\) is Turing-recognizable.</td><td></td></tr>
+              <tr><td>5.28</td><td>237</td><td>(Corollary)  If \(A\leq_{m}B\) and \(A\) is not Turing-recognizable, then \(B\) is not Turing-recognizable.</td><td></td></tr>
+              <tr><td>7.8</td><td>282</td><td>Let \(t(n)\) be a function, where \(t(n) \geq n\). Then every \(t(n)\) time multitape Turing machine has an equivalent \(O(t^2(n))\) time single-tape Turing machine.</td><td></td></tr>
+              <tr><td>7.11</td><td>284</td><td>Let \(t(n)\) be a function, where \(t(n) \geq n\). Then every \(t(n)\) time nondeterministic single-tape Turing machine has an equivalent \(2^{O(t(n))}\) time deterministic single-tape Turing machine.</td><td></td></tr>
+              <tr><td>7.20</td><td>294</td><td>A language is in NP iff it is decided by some nondeterministic polynomial time Turing machine.</td><td></td></tr>
+              <tr><td>(Extra)</td><td>240</td><td>Rice's Theorem: Let P be any nontrivial property of the language of a Turing machine. Prove that the problem of determining whether a given Turing machine's language has property P is undecidable.<p>In more formal terms, let P be a language consisting of Turing machine descriptions where P fulfills two conditions. Frist, P is nontrivial - it contains some, but not all, TM descriptions. Second, P is a property of the TM's language - whenever \(L(M_1) = L(M_2)\), we have \(\langle M_1 \rangle \in P \text{ iff } \langle M_2 \rangle \in P\). Here \(M_1\) and \(M_2\) are any TMs. Prove that P is an undecidable language.</p></td><td></td></tr>
+              <tr><td>7.27</td><td>300</td><td>\(SAT \in P \text{ iff } P = NP\)</td><td></td></tr>
+              <tr><td>7.35</td><td>304</td><td>If B is NP-complete and \(B \in P\), then P = NP</td><td></td></tr>
+              <tr><td>7.36</td><td>304</td><td>If B is NP-complete and \(B \leq_{p} C\) for C in NP, then C is NP-complete</td><td></td></tr>
+              <tr><td>7.37</td><td>304</td><td>SAT is NP-complete</td><td></td></tr>
+              <tr><td>7.44</td><td>311</td><td>VERTEX-COVER is NP-complete</td><td></td></tr>
+              <tr><td>7.43</td><td>312</td><td>(Corollary) Clique is NP-Complete</td><td></td></tr>
+              <tr><td>7.46</td><td>314</td><td>HAMPATH is NP-Complete</td><td></td></tr>
+              <tr><td>7.55</td><td>319</td><td>UHAMPATH is NP-Complete</td><td>Undirected version of Hamiltonian path problem.</td></tr>
+              <tr><td>7.56</td><td>320</td><td>SUBSET-SUM is NP-Complete</td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec02" class="sec">
+          <center id="sec-defs"><h4>Definições</h4></center>
+          <table class="table">
+            <thead>
+              <tr><td>Nº</td><td>Página</td><td>Descrição</td><td>Comentário</td></tr>
+            </thead>
+            <tbody>
+              <tr><td>5.5</td><td>221</td><td>Let \(M\) be a Turing machine and \(w\) an input string. An <i>accepting configuration history</i> for \(M\) on \(w\) is a sequence of configurations, \(C_{1},C_{2},...,C_{l}\) where \(C_{1}\) is the start configuration of \(M\) on \(w\), \(C_{l}\) is an accepting configuration of \(M\), and each \(C_{i}\) legally follows from \(C_{i-1}\) according to the rules of \(M\). A <i>rejecting computation history</i> for \(M\) on \(w\) is defined similarly, except that \(C_{l}\) is a rejecting configuration.</td><td></td></tr>
+              <tr><td>5.6</td><td>221</td><td>A <b>linear bounded automaton</b> is a restricted type of Turing machine wherein the tape head isn’t permitted to move off the portion of the tape containing the input. If the machine tries to move its head off either end of the input, the head stays where it is—in the same way that the head will not move off the left-hand end of an ordinary Turing machine’s tape.</td><td></td></tr>
+              <tr><td>5.18</td><td>234</td><td>A function \( f : \Sigma* \to \Sigma*\) is a <i>computable function</i> if some Turing machine \(M\), on every input \(w\), halts with just \(f(w)\) on its tape.</td><td></td></tr>
+              <tr><td>5.20</td><td>235</td><td>Language \(A\) is <i>mapping reducible</i> to language B, written \(A\leq_{m}B\), if there is a computable function \( f : \Sigma* \to \Sigma*\), where for every \(w\), \(w \in A <=> f(w) \in B\). The function \(f\) is called the <i>reduction</i> from A to B.</td><td></td></tr>
+              <tr><td>7.12</td><td>286</td><td><b>P</b> is the class of languages that are decidable in polynomial time on a deterministic single-tape Turing machine. In other words,<center>\(P = \cup_{k}{TIME(n^k)}\)</center></td><td></td></tr>
+              <tr><td>7.19</td><td>294</td><td>NP is the class of languages that have polynomial time verifiers</td><td>The term NP comes from <i>nondeterministic polynomial time</i> and is derived from an alternative characterization </td></tr>
+              <tr><td>7.21</td><td>295</td><td>\(NTIME(t(n)) = \{L|L\) is a language decided by an \(O(t(n))\) time nondeterministic Turing Machine \(\}\)</td><td></td></tr>
+              <tr><td>7.22</td><td>295</td><td>\(NP = \cup_k{NTIME(n^k)}\)</td><td></td></tr>
+              <tr><td>7.28</td><td>300</td><td>A function \( f : \Sigma* \to \Sigma*\) is a <i>polynominal time computable function</i> if some polynomial time Turing machine M exists and halts with just \(f(w)\) on its tape, when started on any input \(w\).</td><td></td></tr>
+              <tr><td>7.29</td><td>300</td><td>Language A is <i>polynomial time mapping reducible</i>, or simply <i>polynomial time reducible</i>, to language B, written \(A \leq_{p} B\), if a polynomial time computable function \( f : \Sigma* \to \Sigma*\) exists, where for every \(w\), \( w \in A <=> f(w) \in B\). The function f is called the <i>polynomial time reduction</i> of A to B.</td><td></td></tr>
+              <tr><td>7.31</td><td>301</td><td>If \(A \leq_{p} B\) and \(B \in P\) then \(A \in P\)</td><td></td></tr>
+              <tr><td>7.34</td><td>304</td><td>A language B is <i>NP-complete</i> if it satisfies two conditions: (i) B is in NP; (ii) every A in NP is polynomial time reducible to B.</td><td></td></tr>
+              <tr><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec01" class="sec">
+          <center id="sec-quest"><h4>Questionário</h4></center>
+          <table class="table">
+            <thead><tr><td>Página</td><td>Questão</td><td>Trivia</td><td>Comentário</td></tr></thead>
+            <tbody>
+              <tr><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="sec00" class="sec">
+          <center id="sec-info"><h4>Procedimentos</h4></center>
+          <p>
+            <center>Proving some language is in NP</center>
+            <ul>
+              <li>You have two ways to do that. Either showing an verifier for that language, which in turn takes the element of the language plus an certificate c that simply is the solution itself. Then you must check if that solution is in fact according to the rules.</li>
+              <li>Alternatively, you can think in terms of non deterministic turing which runs in polynomial time. Those machines doesn't have an certificate as an input and still must decide that language in polynomial time. Mightwell it just generate and test paths that don't grow faster than \(n^k\)</li>
+              <li>An clear example is in page 296 of the book</li>
+            </ul>
+          </p>
+        </div>
+        <div id="sec00" class="sec">
+          <center id="sec-info"><h4>Observações</h4></center>
+          <ul>
+            <li>Livro:
+              <ul>
+                <li>Nome: Introduction to the Theory of Computation</li>
+                <li>Autor: Michael Sipser</li>
+                <li>Edição: 3ª</li>
+                <li>ISBN-10: 113318779X</li>
+                <li>ISBN-13: 978-1133187790</li>
+                <li>Links: <a href="https://www.amazon.com/Introduction-Theory-Computation-Michael-Sipser/dp/113318779X">Amazon</a></li>
+              </ul>
+            </li>
+            <li>Atualizado em: 01 de Dezembro de 2018</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/shared/jquery-3.3.1.min.js"></script>
+  <script src="/shared/footnotes.js"></script>
+  <script src="/shared/toc.js"></script>
+  <!-- original src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML -->
+  <script src="/shared/mathjax/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script>
+  </script>
+  </body>
+</html>
